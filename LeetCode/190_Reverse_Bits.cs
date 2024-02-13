@@ -7,16 +7,14 @@ public class Solution
 
         while (n > 0)
         {
-            uint remainder = n % 2;
+            uint remainder = n & 1;
             list.Add(remainder);
-            n /= 2;
+            n >>= 1;
         }
 
         int count = list.Count;
         for (int i = 0; i < 32 - count; ++i)
-        {
             list.Add(0);
-        }
         count = list.Count;
         for (int i = 0; i < count; ++i)
         {
