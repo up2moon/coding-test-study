@@ -1,39 +1,38 @@
 public class MyStack
 {
-    private List<int> List { get; }
+    private Queue<int> Queue { get; }
 
     public MyStack()
     {
-        List = new List<int>();
+        Queue = new Queue<int>();
     }
 
     public void Push(int x)
     {
-        List.Add(x);
+        Queue.Enqueue(x);
+        int count = Queue.Count;
+
+        while (--count > 0)
+            Queue.Enqueue(Queue.Dequeue());
     }
 
     public int Pop()
     {
-        int item = 0;
-        if (List.Count != 0)
-        {
-            item = List[List.Count - 1];
-            List.RemoveAt(List.Count - 1);
-        }
-        return item;
+        if (Empty())
+            return 0;
+        return Queue.Dequeue();
     }
 
     public int Top()
     {
-        int item = 0;
-        if (List.Count != 0)
-            item = List[List.Count - 1];
-        return item;
+        if (Empty())
+            return 0;
+        return Queue.Peek();
     }
 
     public bool Empty()
     {
-        return List.Count == 0;
+        return Queue.Count == 0;
     }
 }
 
