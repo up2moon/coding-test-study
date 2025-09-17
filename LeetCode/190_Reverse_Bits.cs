@@ -1,13 +1,13 @@
 public class Solution
 {
-    public uint reverseBits(uint n)
+    public int ReverseBits(int n)
     {
-        uint result = 0;
-        var list = new List<uint>();
+        int result = 0;
+        var list = new List<int>();
 
         while (n > 0)
         {
-            uint remainder = n & 1;
+            int remainder = n & 1;
             list.Add(remainder);
             n >>= 1;
         }
@@ -19,7 +19,7 @@ public class Solution
         for (int i = 0; i < count; ++i)
         {
             int idx = count - 1 - i;
-            result += (uint)Math.Pow(2, i) * list[idx];
+            result += (int)Math.Pow(2, i) * list[idx];
         }
         return result;
     }
