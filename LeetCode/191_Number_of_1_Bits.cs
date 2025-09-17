@@ -1,6 +1,6 @@
 public class Solution
 {
-    public int HammingWeight(uint n)
+    public int HammingWeight(int n)
     {
         int count = 0;
 
